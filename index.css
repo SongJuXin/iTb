@@ -286,6 +286,7 @@ header{
 .menu_nav>div :nth-child(2) li{
 	width: 25%;
 	float: left;
+	position: relative;
 }
 .menu_nav>div :nth-child(2) a{
 	text-decoration: none;
@@ -307,18 +308,39 @@ header{
 .feature .menu_nav_main a:hover{
 	background: #9fb838;
 }
+.feature .menu_nav_main ul li{
+	width: 33%;
+}
 .app .menu_nav_title{
 	color: #d75696;;
 }
 .app .menu_nav_main a:hover{
 	background:#d75696;;
 }
+.app .menu_nav_main ul li{
+	width: 33%;
+}
 .wonderful .menu_nav_title{
 	color: #2e9fdb;;
 }
 .wonderful .menu_nav_main a:hover{
-	background:#2e9fdb;;
+	background:#2e9fdb;
+}
+.wonderful .menu_nav_main ul li{
+	width: 50%;
 }
 .nav_site:hover .menu_nav{
 	display: block;
 }
+.hot,.new{
+	background: url(img/hot.gif);
+	height: 14px;
+	width: 9px;
+	display: inline-block;
+	position: relative;
+	top:-5px;
+}
+.new {
+	background: url(img/new.gif);
+}
+
