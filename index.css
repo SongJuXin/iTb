@@ -11,11 +11,11 @@ a{
 }
 @font-face {
 	font-family: 'iconfont';  /* project id 205933 */
-	src: url('//at.alicdn.com/t/font_cig0yc97yy1u4n29.eot');
-	src: url('//at.alicdn.com/t/font_cig0yc97yy1u4n29.eot?#iefix') format('embedded-opentype'),
-	url('//at.alicdn.com/t/font_cig0yc97yy1u4n29.woff') format('woff'),
-	url('//at.alicdn.com/t/font_cig0yc97yy1u4n29.ttf') format('truetype'),
-	url('//at.alicdn.com/t/font_cig0yc97yy1u4n29.svg#iconfont') format('svg');
+	src: url('//at.alicdn.com/t/font_92pg0a2n0vp74x6r.eot');
+	src: url('//at.alicdn.com/t/font_92pg0a2n0vp74x6r.eot?#iefix') format('embedded-opentype'),
+	url('//at.alicdn.com/t/font_92pg0a2n0vp74x6r.woff') format('woff'),
+	url('//at.alicdn.com/t/font_92pg0a2n0vp74x6r.ttf') format('truetype'),
+	url('//at.alicdn.com/t/font_92pg0a2n0vp74x6r.svg#iconfont') format('svg');
 }
 body{
 	background: #6C6C6C;
@@ -694,8 +694,9 @@ div .pipe{
 .core_main{
 	width: 520px;
 	height: 511px;
-	overflow: hidden;
 	float: left;
+	margin:0 5px;
+
 }
 .sub{
 	width: 520px;
@@ -704,12 +705,63 @@ div .pipe{
 	margin-left: 5px;
 	float: left;
 	position: relative;
+	overflow: hidden;
 }
+.sub a{
+	position: absolute;
+	display: none;
+	top:50%;
+	width: 24px;
+	height: 36px;
+	margin-top: -18px;
+	background: rgba(0,0,0,.2);
+	line-height: 36px;
+	text-align: center;
+	color: white;
+}
+.sub:hover a{
+	display: block;
+}
+.sub a:hover{
+	background: rgba(0,0,0,.6);
+}
+.sub a:first-of-type{
+	left:0;
+}
+.sub a:last-of-type{
+	right: 0;
+}
+.sub ul{
+	position: absolute;
+	bottom: 10px;
+	height: 10px;
+	width: 56px;
+	background: rgba(255,255,255,.5);
+	padding:2px 4px;
+	border-radius: 7px;
+	left: 50%;
+	margin-left: -32px;
+}
+.sub li{
+	width: 10px;
+	height: 10px;
+	float: left;
+	margin: 0 2px;
+	background:#B7B7B7;
+	border-radius: 5px;
+}
+.sub .active{background:  #F94A14}
 .sub_inner{
 	position: absolute;
 	height: 100%;
-	overflow: hidden;
+
+	width: 500%;
 	float: left;
+	left: 0;
+}
+.sub_inner img{
+	float: left;
+	width: 20%;
 }
 .tb_hd{
 	background: white;
@@ -721,17 +773,18 @@ div .pipe{
 	margin-left: 5px;
 }
 .tb_hd h4{
-	background: url(http://img.alicdn.com/tps/TB10wLZLVXXXXcGXVXXXXXXXXXX-49-17.gif) no-repeat -4px bottom;
-	border-bottom: 2px solid #000;
+	border-bottom: 2px solid red;
 	line-height: 26px;
 	font-weight: 700;
-	padding-left: 48px;
 	height: 26px;
 }
-.tb_hd h4 span{
+.tb_hd h4>span{
+	background: url(http://img.alicdn.com/tps/TB10wLZLVXXXXcGXVXXXXXXXXXX-49-17.gif) no-repeat -4px bottom;
+	padding-left: 48px;
 	display: inline-block;
-	margin-top: 5px;
 	color: #3C3C3C;
+	border-bottom: 2px solid #000;
+	margin-bottom: 4px;
 }
 .tb_hd h4 em{
 	color: #666;
