@@ -754,7 +754,6 @@ div .pipe{
 .sub_inner{
 	position: absolute;
 	height: 100%;
-
 	width: 500%;
 	float: left;
 	left: 0;
@@ -763,7 +762,7 @@ div .pipe{
 	float: left;
 	width: 20%;
 }
-.tb_hd{
+.tm{
 	background: white;
 	margin-top: 1px;
 	width: 520px;
@@ -772,27 +771,121 @@ div .pipe{
 	float: left;
 	margin-left: 5px;
 }
-.tb_hd h4{
+.tm h4{
 	border-bottom: 2px solid red;
 	line-height: 26px;
 	font-weight: 700;
 	height: 26px;
 }
-.tb_hd h4>span{
-	background: url(http://img.alicdn.com/tps/TB10wLZLVXXXXcGXVXXXXXXXXXX-49-17.gif) no-repeat -4px bottom;
+.tm h4 .left{
+	background: url(http://img.alicdn.com/tps/TB10wLZLVXXXXcGXVXXXXXXXXXX-49-17.gif) no-repeat -4px ;
 	padding-left: 48px;
 	display: inline-block;
 	color: #3C3C3C;
 	border-bottom: 2px solid #000;
-	margin-bottom: 4px;
+	position: relative;
+	line-height: 19px;
 }
-.tb_hd h4 em{
+.tm h4 .right{
+	float: right;
+	font-size: 12px;
+	line-height: 30px;
+}
+.tm h4 .right span{
+	color: red;
+}
+.tm h4 em{
 	color: #666;
 	font-size: 12px;
 	margin-top: 5px;
 	display: inline-block;
 	margin-left: 5px;
 }
+
+/*天猫轮播*/
+.tm_bd{
+	width: 520px;
+	height: 201px;
+	overflow: hidden;
+	position: relative;
+}
+.tm_bd_inner{
+	width: 700%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+}
+.tm_bd_inner div{
+	width: 520px;
+	height: 100%;
+	background: red;
+	float: left;
+
+}
+.tm_bd_inner div:nth-of-type(1) img{
+	box-sizing: border-box;
+	float: left;
+	width: 25%;
+	height: 100%;
+	border-left: 1px solid silver;
+}
+.tm_bd_inner div:nth-of-type(1) img:first-of-type{
+	border: none;
+}
+.tm_bd_inner div:nth-of-type(2) img{
+	box-sizing: border-box;
+	float: left;
+	width: 50%;
+	height: 100%;
+	border-left: 1px solid silver;
+}
+.tm_bd_inner div:nth-of-type(2) img:first-of-type{
+	border: none;
+}
+.tm_bd a{
+	position: absolute;
+	display: none;
+	top:50%;
+	width: 24px;
+	height: 36px;
+	margin-top: -18px;
+	background: rgba(0,0,0,.2);
+	line-height: 36px;
+	text-align: center;
+	color: white;
+}
+.tm_bd:hover a{
+	display: block;
+}
+.tm_bd a:hover{
+	background: rgba(0,0,0,.6);
+}
+.tm_bd a:first-of-type{
+	left:0;
+}
+.tm_bd a:last-of-type{
+	right: 0;
+}
+.tm_bd ul{
+	position: absolute;
+	bottom: 10px;
+	height: 10px;
+	background: rgba(255,255,255,.5);
+	display: inline-block;
+	padding:2px 4px;
+	border-radius: 7px;
+	left: 50%;
+	margin-left: -32px;
+}
+.tm_bd li{
+	width: 10px;
+	height: 10px;
+	float: left;
+	margin: 0 2px;
+	background:#B7B7B7;
+	border-radius: 5px;
+}
+.tm_bd .active{background:  #F94A14}
 .adv{
 	float: left;
 	margin-left: 5px;
@@ -806,6 +899,26 @@ div .pipe{
 	width: 160px;
 	height: 230px;
 }
+.sub ul{
+	position: absolute;
+	bottom: 10px;
+	height: 10px;
+	width: 56px;
+	background: rgba(255,255,255,.5);
+	padding:2px 4px;
+	border-radius: 7px;
+	left: 50%;
+	margin-left: -32px;
+}
+.sub li{
+	width: 10px;
+	height: 10px;
+	float: left;
+	margin: 0 2px;
+	background:#B7B7B7;
+	border-radius: 5px;
+}
+.sub .active{background:  #F94A14}
 .adv_down h4{
 	line-height: 24px;
 	padding-top: 6px;

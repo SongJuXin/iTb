@@ -7,10 +7,34 @@ var render=(function () {
     var sub=document.getElementsByClassName('sub')[0]
     var tips=sub.getElementsByTagName('li')
     var slide_btn=sub.getElementsByTagName('a')
+    var tm_bd_inner=document.getElementsByClassName('tm_bd_inner')[0]
+    var tm_bd=document.getElementsByClassName('tm_bd')[0]
+    var tm_btn=tm_bd.getElementsByTagName('a')
+    var tm_tips=tm_bd.getElementsByTagName('li')
+    console.log(tm_bd_inner)
     return {
         init(){
+            //移入show移出hide
             render.services_toggle()
-            render.slide()
+            //淘宝banner
+            render.slide({
+                outter:sub,
+                inner:sub_inner,
+                btn:slide_btn,
+                tips:tips
+            })
+            //天猫banner
+            render.slide({
+                outter:tm_bd,
+                inner:tm_bd_inner,
+                btn:tm_btn,
+                tips:tm_tips,
+                cb:function (n) {
+                    var changeSpan=document.getElementsByClassName('red')[0]
+                    if(n>=6)n=0
+                    changeSpan.innerHTML=n+1
+                }
+            })
         },
         services_toggle(){
             [].slice.call(aServiceShow).forEach(function (item) {
@@ -29,70 +53,79 @@ var render=(function () {
             }
 
      },
-      slide(){
+      slide(obj){
+          var outter=obj.outter,
+              inner=obj.inner,
+              btn=obj.btn,
+              tips=obj.tips,
+              num=tips.length,
+              cb=obj.cb
           var n=0
-          var timer=setInterval(function () {
-              n++
-              if(n>4){
-                  n=1
-                  utils.css(sub_inner,{left:0})
-              }
-              auto_move()
-          },1200)
-          sub_event()
-
-          function auto_move() {
+          var auto_move=function() {
               ;[].slice.call(tips).forEach(function (item,index) {
                   item.className=index==n
                       ?'active'
                       :''
               })
-              console.log(n)
-              if(n==4)tips[0].className='active'
-              animate(sub_inner,{left:-520*n},{
-                  duration:800,
-                  effect:0
+
+              if(n==num)tips[0].className='active'
+              animate(inner,{left:-520*n},{
+                  duration:1000,
+                  effect:0,
+                  callback:function () {
+                      cb&&cb(n)
+                  }
               })
           }
-          function sub_event() {
-              sub.onmouseover=function () {
+          var sub_event=function () {
+              outter.onmouseover=function () {
                   clearInterval(timer)
               }
-              sub.onmouseout=function () {
+              outter.onmouseout=function () {
                   timer=setInterval(function () {
                       n++
-                      if(n>4){
+                      if(n>num){
                           n=1
-                          utils.css(sub_inner,{left:0})
+                          utils.css(inner,{left:0})
                       }
                       auto_move()
-                  },1200)
+                  },2000)
               }
-              slide_btn[0].onclick=function () {
+              btn[0].onclick=function () {
                   n--
                   if(n<0){
-                      n=3
-                      utils.css(sub_inner,{left:-520*(n+1)})
+                      n=num-1
+                      utils.css(inner,{left:-520*(n+1)})
                   }
                   auto_move()
               }
-              slide_btn[1].onclick=function () {
+              btn[1].onclick=function () {
                   n++
-                  if(n>4){
+                  if(n>num){
                       n=1
-                      utils.css(sub_inner,{left:0})
+                      utils.css(inner,{left:0})
                   }
                   auto_move()
               }
               ;[].slice.call(tips).forEach(function (item,index) {
                   item.onclick=function () {
                       n=index
+                      if(n==0)n=num
                       auto_move()
                   }
 
               })
 
           }
+          var timer=setInterval(function () {
+              n++
+              if(n>num){
+                  n=1
+                  utils.css(inner,{left:0})
+              }
+              auto_move()
+          },2000)
+          sub_event()
       }
     }
 })()
