@@ -2,6 +2,11 @@
 	margin: 0;
 	padding: 0;
 	list-style: none;
+
+}
+input{
+	outline:medium;
+	border: none;
 }
 i,em{
 	font-style: normal;
@@ -11,11 +16,11 @@ a{
 }
 @font-face {
 	font-family: 'iconfont';  /* project id 205933 */
-	src: url('//at.alicdn.com/t/font_qoix3l8lt8v0lik9.eot');
-	src: url('//at.alicdn.com/t/font_qoix3l8lt8v0lik9.eot?#iefix') format('embedded-opentype'),
-	url('//at.alicdn.com/t/font_qoix3l8lt8v0lik9.woff') format('woff'),
-	url('//at.alicdn.com/t/font_qoix3l8lt8v0lik9.ttf') format('truetype'),
-	url('//at.alicdn.com/t/font_qoix3l8lt8v0lik9.svg#iconfont') format('svg');
+	src: url('//at.alicdn.com/t/font_dd3n3terk0zoajor.eot');
+	src: url('//at.alicdn.com/t/font_dd3n3terk0zoajor.eot?#iefix') format('embedded-opentype'),
+	url('//at.alicdn.com/t/font_dd3n3terk0zoajor.woff') format('woff'),
+	url('//at.alicdn.com/t/font_dd3n3terk0zoajor.ttf') format('truetype'),
+	url('//at.alicdn.com/t/font_dd3n3terk0zoajor.svg#iconfont') format('svg');
 }
 body{
 	background: #6C6C6C;
@@ -1070,9 +1075,233 @@ div .pipe{
 .hot_notice{
 	color: #f40;
 }
+/*各种入口*/
 .conve{
 	width: 290px;
 	height: 201px;
-	background: lightblue;
 	margin-top: 1px;
+	position: relative;
+}
+.conve-item li{
+	width: 70px;
+	height: 67px;
+	float: left;
+	line-height: 58px;
+	text-align: center;
+	border: 1px solid #eaeaea;
+
+}
+.conve-item li span{
+	width: 24px;
+	height: 24px;
+	display: inline-block;
+	line-height: 18px;
+
+}
+.conve-item li p{
+	width: 100%;
+	height: 18px;
+	line-height: 18px;
+	text-align: center;
+	margin-top: -12px;
+	float: left;
+	font-size: 12px;
+}
+.conve-item1 span{
+	background: url(img/many.png) 0 0;
+}
+.conve-item2 span{
+	background: url(img/many.png) 0 -44px;
+}
+.conve-item3 span{
+	background: url(img/many.png) 0 -88px;
+}
+.conve-item4 span{
+	background: url(img/many.png) 0 -132px;
+}
+.conve-item5 span{
+	background: url(img/many.png) 0 -176px;
+}
+.conve-item6 span{
+	background: url(img/many.png) 0 -220px;
+}
+.conve-item7 span{
+	background: url(img/many.png) 0 -266px;
+}
+.conve-item8 span{
+	background: url(img/many.png) 0 -310px;
+}
+.conve-item9 span{
+	background: url(img/many.png) 0 -354px;
+}
+.conve-item10 span{
+	background: url(img/many.png) 0 -398px;
+}
+.conve-item11 span{
+	background: url(img/many.png) 0 -442px;
+}
+.conve-item12 span{
+	background: url(img/many.png) 0 -486px;
+}
+.conve-bd-box{
+	position: absolute;
+	top:70px;
+	width: 280px;
+	height: 150px;
+	border: 1px solid #f40;
+	border-top: none;
+	background: white;
+	padding: 4px;
+	display: none;
+}
+.conve-bd-box>a{
+	right: 2px;
+	top:2px;
+	display: block;
+	position: absolute;
+	font-size: 12px;
+	color: #999;
+	z-index: 2;
+}
+.conve-bd-box>a:hover{
+	background: #c0c0c0;
+}
+.conve-bd-item{
+	width: 100%;
+	height: 26px;
+	text-align: center;
+	margin-left: -4px;
+	display: none;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+.conve-tabs{
+	width: 278px;
+	height: 26px;
+}
+.conve-tabs a{
+	display: inline-block;
+	width: 25%;
+	font-size: 12px;
+	float: left;
+	text-align: center;
+	height: 20px;
+	color: #666;
+}
+.tbr-phone{
+	width: 1200px;
+	height: 100px;
+	padding: 15px;
+	position: absolute;
+	left: 0;
+}
+.tbr-phone>div{
+	float: left;
+	width:300px;
+	height: 117px;
+}
+.tbr-phone-denom,.tbr-phone-number{
+	width: 188px;
+	height: 24px;
+	border: 1px solid #ccc;
+	position: relative;
+	text-align: left;
+	line-height: 24px;
+}
+.tbr-phone-denom input,.tbr-phone-number input{
+	width: 165px ;
+	height: 13px;
+	text-align: start;
+	padding-left: 2px;
+}
+.tbr-phone-denom:hover,.tbr-phone-number:hover{
+	border-color:#9c9c9c;
+}
+.tbr-phone-number:hover span{
+	background: url(https://img.alicdn.com/tps/i4/T1gcVFFcRcXXbffaj4-200-230.png) -4px 5px;
+}
+.tbr-phone-number span{
+	background: url(https://img.alicdn.com/tps/i4/T1gcVFFcRcXXbffaj4-200-230.png) -24px 5px;
+	height: 26px;
+	width: 20px;
+	display: inline-block;
+	position: absolute;
+	display: inline-block;
+	right: 0;
+	top:0
+}
+.tbr-phone-denom:hover i{
+	color: #666;
+}
+.tbr-phone-denom i{
+	position: absolute;
+	display: inline-block;
+	right: 0;
+	top:0;
+	color: #ccc;
+	width: 20px;
+}
+.phone-sum{
+	position: absolute;
+	width: 188px;
+	top:97px;
+	border-left: 1px solid #9c9c9c;
+	left: 15px;
+	z-index: 1;
+	background: white;
+	display: none;
+}
+.phone-sum li{
+	float: left;
+	width: 50%;
+	height: 32px;
+	text-indent:6px;
+	font-size: 12px;
+	font-weight: bold;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	box-sizing: border-box;
+	line-height: 32px;
+	text-align: start;
+}
+.phone-sum li:hover{
+	background: #ffece5;
+}
+.phone-cost{
+	font-size: 12px;
+	padding-left: 5px;
+	text-align: start;
+	width: 100%;
+	height: 27px;
+}
+.phone-cost span{
+	float: left;
+}
+.phone-real{
+	color:#f40;
+	float: left;
+}
+.phone-cost-now{
+	display: block;
+	height: 27px;
+	text-align: start;
+	font-size: 12px;
+}
+.cost-now{
+	border-radius: 2px;
+	height: 21px;
+	text-align: center;
+	line-height: 21px;
+	background: #ff6537;
+	padding:3px 10px;
+	color: white;
+	display: inline-block;
+	font-weight: bold;
+}
+.cost-now:hover{
+	background: #F94A14;
+}
+.phone-cost-now a{
+	color: #999;
 }

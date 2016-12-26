@@ -11,7 +11,6 @@ var render=(function () {
     var tm_bd=document.getElementsByClassName('tm_bd')[0]
     var tm_btn=tm_bd.getElementsByTagName('a')
     var tm_tips=tm_bd.getElementsByTagName('li')
-    console.log(tm_bd_inner)
     return {
         init(){
             //移入show移出hide
@@ -35,6 +34,7 @@ var render=(function () {
                     changeSpan.innerHTML=n+1
                 }
             })
+            render.conve()
         },
         services_toggle(){
             [].slice.call(aServiceShow).forEach(function (item) {
@@ -126,7 +126,64 @@ var render=(function () {
               auto_move()
           },2000)
           sub_event()
-      }
+      },
+        conve(){
+            var conve=document.getElementsByClassName('conve')[0]
+            var conveBox=conve.getElementsByClassName('conve-bd-box')[0]
+            var conveItems=conve.getElementsByClassName('conve-bd-item')
+            var conveHovers=conve.getElementsByClassName('conve-hover')
+            var close=document.getElementById('conve-close')
+            var tbrPhone=conve.getElementsByClassName('tbr-phone')[0]
+            var phoneSum=conve.getElementsByClassName('phone-sum')[0]
+            var phoneDenom=conve.getElementsByClassName('tbr-phone-denom')[0]
+            ;[].slice.call(conveHovers).forEach(function (item,index) {
+                item.onmouseenter=function (e) {
+                    conveBox.style.display='block'
+                    ;[].slice.call(conveItems).forEach(function (item) {
+                        item.style.display='none'
+                        var conveTab=item.getElementsByClassName('conve-tabs')[0]
+                        if(!conveTab)return
+                        var hovers=conveTab.children
+                        if(hovers.length>0){
+                            ;[].slice.call(hovers).forEach(function (item,index) {
+                                item.onmouseover=function () {
+                                    animate(tbrPhone,
+                                        {
+                                          left:-300*index
+                                         },
+                                        {
+                                          duration:500
+                                        })
+                                }
+                            })
+                        }
+
+                    })
+                    conveItems[index].style.display='block'
+                }
+            })
+            close.onclick=function () {
+                conveBox.style.display='none'
+            }
+            phoneDenom.onclick=function () {
+                if(phoneSum.style.display=='inline-block'){
+                    phoneSum.style.display='none'
+                }
+                else{
+                    phoneSum.style.display='inline-block'
+
+                }
+            }
+            document.addEventListener('click',function (e) {
+                e=e||event
+                if(e.target.id=='phone-input'||e.target.id=='phone-choose'){
+
+                }
+                else{
+                    phoneSum.style.display='none'
+                }
+            })
+        }
     }
 })()
 render.init()
