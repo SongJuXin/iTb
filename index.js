@@ -128,16 +128,30 @@ var render=(function () {
           sub_event()
       },
         conve(){
+            var that=this
             var conve=document.getElementsByClassName('conve')[0]
             var conveBox=conve.getElementsByClassName('conve-bd-box')[0]
             var conveItems=conve.getElementsByClassName('conve-bd-item')
             var conveHovers=conve.getElementsByClassName('conve-hover')
+            var convePs=conve.getElementsByClassName('conve-hover1')
             var close=document.getElementById('conve-close')
             var tbrPhone=conve.getElementsByClassName('tbr-phone')[0]
             var phoneSum=conve.getElementsByClassName('phone-sum')[0]
             var phoneDenom=conve.getElementsByClassName('tbr-phone-denom')[0]
             ;[].slice.call(conveHovers).forEach(function (item,index) {
                 item.onmouseenter=function (e) {
+                    that.removeAllC(conveHovers,convePs)
+                    item.className+=' out-orange'
+                    item.getElementsByTagName('p')[0].className+=' in-orange'
+                    for(var i=0;i<4;i++){
+                        if(i==index){
+                            item.className+=' out-orange1'
+                        }
+                        else{
+                            conveHovers[i].className+=' out-orange2'
+                        }
+                    }
+                    //conveBox.style.borderTop='1px solid #f40'
                     conveBox.style.display='block'
                     ;[].slice.call(conveItems).forEach(function (item) {
                         item.style.display='none'
@@ -147,6 +161,11 @@ var render=(function () {
                         if(hovers.length>0){
                             ;[].slice.call(hovers).forEach(function (item,index) {
                                 item.onmouseover=function () {
+                                    for(var i=0;i<item.parentNode.children.length;i++){
+                                       that.removeClass(item.parentNode.children[i],'in-orange')
+                                    }
+                                    this.className='in-orange'
+                                    if(utils.next(item.parentNode).children.length!=hovers.length)return
                                     animate(tbrPhone,
                                         {
                                           left:-300*index
@@ -163,6 +182,7 @@ var render=(function () {
                 }
             })
             close.onclick=function () {
+                that.removeAllC(conveHovers,convePs)
                 conveBox.style.display='none'
             }
             phoneDenom.onclick=function () {
@@ -173,6 +193,7 @@ var render=(function () {
                     phoneSum.style.display='inline-block'
 
                 }
+
             }
             document.addEventListener('click',function (e) {
                 e=e||event
@@ -183,7 +204,25 @@ var render=(function () {
                     phoneSum.style.display='none'
                 }
             })
-        }
+        },
+        removeAllC(conveHovers,convePs){
+            for(var i=0;i<4;i++){
+                this.removeClass(conveHovers[i],'out-orange1')
+                this.removeClass(convePs[i],'in-orange')
+                this.removeClass(conveHovers[i],'out-orange2')
+            }
+        },
+        removeClass(curEle,strClass){
+            var aryClass=strClass.replace(/(^ +)|( +$)/g,'').split(/\s+/g);
+            for(var i=0; i<aryClass.length; i++){
+                //var reg=new RegExp('(^| +)'+aryClass[i]+'( +|$)');
+                var reg=new RegExp('\\b'+aryClass[i]+'\\b');
+                if(!curEle)return
+                if(reg.test(curEle.className)){
+                    curEle.className=curEle.className.replace(reg,' ').replace(/(^ +)|( +$)/g,'').replace(/\s+/g,' ');
+                }
+            }
+    }
     }
 })()
 render.init()
