@@ -37,7 +37,7 @@ header{
 .nav_top span{
 	font-family:bodytahoma,arial,"Hiragino Sans GB","宋体",sans-serif;
 	color: #6C6C6C;
-	font-size: 14px;
+	font-size: 12px;
 	padding: 0 3px;
 ;
 }
@@ -62,8 +62,12 @@ header{
 }
 .nav_l>div,.nav_r>div{
 	height: 35px;
-	float: left;	
-	
+	float: left;
+
+}
+.nav_l>div>div,.nav_r>div>div{
+	border: 1px solid #EEE;
+	border-top: none;
 }
 .nav_l>div:hover,.nav_r>div:hover{
 	background: white;
